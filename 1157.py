@@ -1,16 +1,18 @@
 # 1157번 - 단어 공부
-import sys
 
-s = sys.stdin.readline().rstrip().upper()
-s_cnt = list(set(s))
-cnt_list = []
+s = input().upper()
+cnt = []
 
-for i in s_cnt:
-    cnt = s.count(i)
-    cnt_list.append(cnt)
+for i in set(s):
+    cnt.append(s.count(i))
 
-if cnt_list.count(max(cnt_list)) > 1:
-    print('?')
+idx = [i for i, x in enumerate(cnt) if x == max(cnt)]
+
+if len(idx) > 1:
+    print("?")
 else:
-    index = cnt_list.index(max(cnt_list))
-    print(s[index])
+    print(list(set(s))[cnt.index(max(cnt))])
+
+
+    
+
